@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/ToDoItem.css"; 
+import "../styles/ToDoItem.css";
+import { BiTrash } from 'react-icons/bi';
 
 
 function ToDoItem(props) {
@@ -9,7 +10,7 @@ function ToDoItem(props) {
                 <section>
                     <p className={`ToDoItem-p ${props.completed && 'ToDoItem-p--complete'}`}>{props.text}</p>
                 </section>
-            <span className="Icon Icon-delete">X</span>    
+            <span className="Icon Icon-delete"><BiTrash/></span>    
         </li>
     );
 }
