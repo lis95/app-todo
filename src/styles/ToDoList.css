@@ -1,0 +1,21 @@
+
+.Caja{
+    border-radius: 10px;
+    padding: 5px;
+    width: 55%;
+    margin: auto;
+    background-color: rgba(242, 213, 255, 0.3);
+    box-shadow: 0px 10px 10px -6px black;
+    float: right;
+}
+
+ul{
+    margin: 0;
+    padding: 0 0 56px 0;
+    list-style: none;
+}
+ img{
+     width: 35%;
+     margin-top: -70px;
+     justify-content: center;
+ }
