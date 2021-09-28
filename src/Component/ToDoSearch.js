@@ -7,7 +7,7 @@ import "../styles/ToDoSearch.css";
 function ToDoSearch () {
     return(
         <div className="ToDoSearch">
-            <input className="ButtonSearch"placeholder="aqui va un texto"/>
+            <input className="ButtonSearch"placeholder="Search"/>
         </div>
     );
 }

@@ -9,9 +9,9 @@ import { HeaderToDo } from './Component/HeaderToDo';
 
 
 const toDos = [
-  {text: 'tarea 1', completed: false},
-  {text: 'tarea 2', completed: true},
-  {text: 'tarea 3', completed: false},
+  {text: 'Tarea 1', completed: false},
+  {text: 'Tarea 2', completed: true},
+  {text: 'Tarea 3', completed: false},
   {text: 'tarea 4', completed: false}
 
 ]

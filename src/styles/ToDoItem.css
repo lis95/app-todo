@@ -11,8 +11,8 @@
     box-shadow: 0px 10px 10px -6px black; 
     transition: transform .5s; 
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-   }
+    font-family: 'Roboto', sans-serif;
+     }
 
    .ToDoItem:hover{
     transform: scale(1.1);
