@@ -1,6 +1,6 @@
-button{
- width: 50px;
- height: 50px;
+.TodoButton{
+ width: 60px;
+ height: 60px;
  border-radius: 50%;
  background-color: #F0B97E;
  box-shadow: 0px 0px 24px 4px rgba(9,9,10,0.55);
@@ -18,15 +18,10 @@ button{
  align-items: center;
  justify-content: center;
  border: none;
+ color: #fff;
 }
 
-button:hover {
+.TodoButton:hover {
     background-color: rgba(103,78,167);
     transform: rotate(270deg);
-}
-button a {
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    text-decoration: none;
 }

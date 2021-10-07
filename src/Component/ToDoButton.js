@@ -1,9 +1,17 @@
 import React from "react";
 import "../styles/ToDoButton.css";
 
-function ToDoButton () {
+function ToDoButton (props) {
+    const onClickButton = (msj) => {
+        alert(msj)
+    }
     return(
-        <button type="submit"><a href="#">+</a></button>
+        <button 
+        className="TodoButton"
+        onClick={() => onClickButton('aqui deberia haber un modal')}
+        >
+            +
+        </button>
     );
 }
 
