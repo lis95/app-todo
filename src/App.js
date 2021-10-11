@@ -1,14 +1,9 @@
 import './App.css';
 import React from 'react'
-import { ToDoCounter } from './Component/ToDoCounter';
-import { ToDoSearch } from './Component/ToDoSearch';
-import { ToDoList } from './Component/ToDoList';
-import { ToDoItem } from './Component/ToDoItem';
-import {ToDoButton} from './Component/ToDoButton';
-import { HeaderToDo } from './Component/HeaderToDo';
+import { AppUI } from './AppUI';
 
 
-const defaulttoDos = [
+/*const defaulttoDos = [
   {text: 'Estudiar React', completed: false},
   {text: 'Trabajar', completed: true},
   {text: 'Cocinar', completed: true},
@@ -21,8 +16,21 @@ const defaulttoDos = [
   {text: 'Limpiar la casa', completed: false}
 
 ]
+*/
+
 function App() {
-  const [toDos, setTodo] = React.useState(defaulttoDos)
+/*-------creacion de localStorage--------*/
+  const localStorageToDos = localStorage.getItem('ToDos_V1'); 
+  let parsedToDos;
+
+if (!localStorageToDos){
+  localStorage.getItem('ToDos_V1', JSON.stringify([]));
+  parsedToDos = []; 
+} else {
+  parsedToDos = JSON.parse(localStorageToDos)
+}
+/*---Estados de la app----*/
+  const [toDos, setTodo] = React.useState(parsedToDos)
   const [searchValue, setSearchValue] = React.useState('')
 
 
@@ -41,12 +49,20 @@ function App() {
       return todoText.includes(searchText); 
     })
   }
+/*-------Guardando las tareas-------*/
+  const saveToDos = (newToDos) => {
+    const stringifiedToDos = JSON.stringify(newToDos); 
+    localStorage.setItem('ToDos_V1', stringifiedToDos)
+    setTodo(newToDos)
+
+  }
+
 /*------- Marcar tareas completadas--------*/
   const completeToDo = (text) => {
     const toDoIndex = toDos.findIndex(toDo => toDo.text === text); //busca el index con el texto, lo compara y ubica
     const newToDos = [...toDos]; //todas las tareas que tenia originalmente
     newToDos[toDoIndex].completed = true; //manipula sus atributos.
-    setTodo(newToDos) //Actualiza el estado con los cambios realizados
+    saveToDos(newToDos) //Actualiza el estado con los cambios realizados
 
   }
    /*--------Eliminando tareas------------*/
@@ -54,40 +70,24 @@ function App() {
     const toDoIndex = toDos.findIndex(toDo => toDo.text === text); //busca el index con el texto, lo compara y ubica
     const newToDos = [...toDos]; //todas las tareas que tenia originalmente
     newToDos.splice(toDoIndex, 1) //manipula sus atributos.
-    setTodo(newToDos) //Actualiza el estado con los cambios realizados
+    saveToDos(newToDos) //Actualiza el estado con los cambios realizados
   }
 
   return (
-    <React.Fragment>
-
-      <HeaderToDo/>
-      <ToDoCounter
-        total ={totalToDos}
-        completed={completedToDos}
-      />  
-    
-    <ToDoSearch 
+    <AppUI
+      totalToDos={totalToDos}
+      completedToDos={completedToDos}
       searchValue={searchValue}
       setSearchValue={setSearchValue}
-    />
+      searchedToDos={searchedToDos}
+      completeToDo={completeToDo}
+      deleteToDo={deleteToDo}
 
-    <ToDoList>
-      {searchedToDos.map(toDos => (
-        <ToDoItem 
-        key={toDos.text} 
-        text= {toDos.text} 
-        completed={toDos.completed}
-        onCompleted={() => completeToDo(toDos.text)}
-        onDelete={() => deleteToDo(toDos.text)}
-        />
-      ))}   
-    </ToDoList>
-    
-   <ToDoButton/>
- 
-    
-    </React.Fragment>
-  );
+    />
+     
+
+
+      );
 }
 
 export default App;
