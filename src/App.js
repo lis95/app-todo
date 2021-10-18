@@ -18,19 +18,64 @@ import { AppUI } from './AppUI';
 ]
 */
 
-function App() {
-/*-------creacion de localStorage--------*/
-  const localStorageToDos = localStorage.getItem('ToDos_V1'); 
-  let parsedToDos;
+/*--------------CustomHooks------------------*/
+function useLocalStorage(ItemName, initialValue) {
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
+  const [item, setItem] = React.useState(initialValue)        
+  /*-------------UseEffect--------------------------*/
+  React.useEffect(()=>{
+    setTimeout(()=>{
+  /*-------creacion de localStorage--------*/
+      try{
+        const localStorageItem = localStorage.getItem(ItemName); 
+        let parsedItem;
 
-if (!localStorageToDos){
-  localStorage.getItem('ToDos_V1', JSON.stringify([]));
-  parsedToDos = []; 
-} else {
-  parsedToDos = JSON.parse(localStorageToDos)
+        if (!localStorageItem){
+          localStorage.getItem(ItemName, JSON.stringify(initialValue));
+          parsedItem = initialValue; 
+        } else {
+          parsedItem = JSON.parse(localStorageItem)
+        }
+        setItem(parsedItem);
+        setLoading(false);
+        }catch(err){
+          setError(true)
+        }
+      
+    }, 1000)
+  }, [])
+  
+
+
+/*-------Guardando las tareas-------*/
+  const saveItem = (newItem) => {
+    try {
+      const stringifiedItem = JSON.stringify(newItem); 
+      localStorage.setItem(ItemName, stringifiedItem)
+      setItem(newItem);
+    } catch (error) {
+      setError(true)
+    }
+  };
+  return{ 
+    item,
+    saveItem,
+    loading,
+    error,
+ };
 }
+function App() {
+  const {
+    item: toDos,
+    saveItem: saveToDos,
+    loading,
+    error,
+   } = useLocalStorage('ToDos_V1', [])
+
+
+
 /*---Estados de la app----*/
-  const [toDos, setTodo] = React.useState(parsedToDos)
   const [searchValue, setSearchValue] = React.useState('')
 
 
@@ -49,13 +94,7 @@ if (!localStorageToDos){
       return todoText.includes(searchText); 
     })
   }
-/*-------Guardando las tareas-------*/
-  const saveToDos = (newToDos) => {
-    const stringifiedToDos = JSON.stringify(newToDos); 
-    localStorage.setItem('ToDos_V1', stringifiedToDos)
-    setTodo(newToDos)
 
-  }
 
 /*------- Marcar tareas completadas--------*/
   const completeToDo = (text) => {
@@ -75,6 +114,8 @@ if (!localStorageToDos){
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalToDos={totalToDos}
       completedToDos={completedToDos}
       searchValue={searchValue}

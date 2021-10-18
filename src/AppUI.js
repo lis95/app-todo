@@ -8,6 +8,8 @@ import { HeaderToDo } from './Component/HeaderToDo';
 
 
 function AppUI({
+      error,
+      loading,
       totalToDos,
       completedToDos,
       searchValue,
@@ -31,6 +33,9 @@ function AppUI({
             />
 
             <ToDoList>
+                {error && <p>hubo un error</p>}
+                {loading && <p>cargando informacion</p>}
+                {(!loading && !searchedToDos.length) && <p>crea tu primer To Do</p>}
             {searchedToDos.map(toDos => (
                 <ToDoItem 
                 key={toDos.text} 
