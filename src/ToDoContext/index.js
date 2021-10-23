@@ -57,7 +57,7 @@ const ToDoContext = React.createContext()
                 completeToDo,
                 deleteToDo
             }}>
-
+                 {props.children}
             </ToDoContext.Provider>
         )
     }

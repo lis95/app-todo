@@ -1,13 +1,14 @@
 import React from "react";
 import "../styles/ToDoSearch.css";
 import { IoIosSearch } from "react-icons/io"
+import { ToDoContext } from '../ToDoContext';
 
 
 
 
-function ToDoSearch ({searchValue, setSearchValue}) {
 
-    
+function ToDoSearch () {
+   const { searchValue, setSearchValue } = React.useContext(ToDoContext);
 
     const onSearch = (event) => {
         setSearchValue(event.target.value)
