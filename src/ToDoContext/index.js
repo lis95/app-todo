@@ -12,7 +12,7 @@ const ToDoContext = React.createContext()
         
             /*---Estados de la app----*/
             const [searchValue, setSearchValue] = React.useState('')
-                        
+            const [openModal, setOpenModal] = React.useState(false)           
             const completedToDos = toDos.filter(toDos => !!toDos.completed).length; //cantidad de tareas completadas
             const totalToDos = toDos.length; //total de tareas
             
@@ -28,7 +28,15 @@ const ToDoContext = React.createContext()
                 return todoText.includes(searchText); 
                 })
             }
-                        
+            /*------- Crear Nueva Tarea--------*/
+            const addToDo = (text) => {
+                const newToDos = [...toDos];  
+                newToDos.push({
+                    completed: false,
+                    text,
+                }); 
+                saveToDos(newToDos) 
+            };
             /*------- Marcar tareas completadas--------*/
             const completeToDo = (text) => {
                 const toDoIndex = toDos.findIndex(toDo => toDo.text === text); //busca el index con el texto, lo compara y ubica
@@ -54,8 +62,11 @@ const ToDoContext = React.createContext()
                 searchValue,
                 setSearchValue,
                 searchedToDos,
+                addToDo,
                 completeToDo,
-                deleteToDo
+                deleteToDo, 
+                openModal,
+                setOpenModal
             }}>
             {props.children}
 

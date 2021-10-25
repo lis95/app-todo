@@ -1,15 +1,17 @@
 import React from "react";
 import "../styles/ToDoSearch.css";
-import { IoIosSearch } from "react-icons/io"
+import { IoIosSearch } from "react-icons/io";
+import { ToDoContext } from "../ToDoContext";
 
 
 
 
-function ToDoSearch ({searchValue, setSearchValue}) {
 
+function ToDoSearch () {
+const {searchValue, setSearchValue} = React.useContext(ToDoContext);
     
 
-    const onSearch = (event) => {
+    const onSearchValueChange = (event) => {
         setSearchValue(event.target.value)
     }
     return (
@@ -18,7 +20,7 @@ function ToDoSearch ({searchValue, setSearchValue}) {
             <input 
                 className="ButtonSearch" 
                 placeholder="Search"
-                onChange={onSearch} 
+                onChange={onSearchValueChange} 
                 value={searchValue}
             />
         </div>

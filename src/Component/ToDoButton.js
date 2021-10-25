@@ -3,12 +3,12 @@ import "../styles/ToDoButton.css";
 
 function ToDoButton (props) {
     const onClickButton = (msj) => {
-        alert(msj)
+        props.setOpenModal(prevState => !prevState);
     }
     return(
         <button 
         className="TodoButton"
-        onClick={() => onClickButton('aqui deberia haber un modal')}
+        onClick={onClickButton}
         >
             +
         </button>
