@@ -32,19 +32,20 @@ function ToDoForm () {
                     placeholder="ecribe tu Nueva tarea"
                 >
                 </textarea>
+                <div>
+                    <button
+                        onClick={onCancel}
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        type="submit"
+                    >
+                        Add
+                    </button>
+                </div>
             </form>
-            <div>
-                <button
-                    onClick={onCancel}
-                >
-                    Cancelar
-                </button>
-                <button
-                    type="submit"
-                >
-                    Add
-                </button>
-            </div>
+          
         </React.Fragment>
     );
 }
