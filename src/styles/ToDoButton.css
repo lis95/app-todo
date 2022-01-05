@@ -19,6 +19,7 @@
  justify-content: center;
  border: none;
  color: #fff;
+ z-index: 1;
 }
 
 .TodoButton:hover {

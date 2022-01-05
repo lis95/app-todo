@@ -1,9 +1,11 @@
 import React from "react";
 import '../styles/ToDoCounter.css';
+import { ToDoContext } from "../ToDoContext";
 
-function ToDoCounter ({completed, total}) { //recibe las props del componente ToDoCouter 
-    return(                                 //que a su vez, este recibe un calculo de total de tareas y tareas completadas. 
-        <h2 className="ToDoCounter">Has completado {completed} de {total} tareas</h2>
+function ToDoCounter () { 
+    const {completedToDos, totalToDos} = React.useContext(ToDoContext)
+    return(                               
+        <h2 className="ToDoCounter">Has completado {completedToDos} de {totalToDos} tareas</h2>
     );
 }
 
