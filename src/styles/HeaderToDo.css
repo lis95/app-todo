@@ -1,14 +1,6 @@
 .HeaderToDo{
     display: flex;
-    justify-content: space-between;
-    background-color: rgba(103,78,167, 0.7);
-    text-align: center;
-    padding: 30px;
-    position: relative;
-    bottom: 30px;
-    height: 100px;
-    border-radius: 5px;
-    box-shadow: 0px 10px 10px -6px black;
+    align-items: flex-end;
 }
 
 .HeaderTitle{
@@ -16,14 +8,13 @@
     justify-content: center;
     width: 100%;
     color: white;
-    font-size: 40px;
+    font-size: 45px;
     font-family: 'Cinzel Decorative', cursive;
 }
 
 .logo{
+    display: flex;
     width:120px; 
     height:120px;
-    display: flex;
-    position: absolute;
     margin: 0;
 }

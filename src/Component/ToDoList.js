@@ -6,9 +6,9 @@ import task from "../img/task.png";
 function ToDoList(props) {
     return(
 
-        <div>
+        <div className="Box">
             <img className="imageTask" src={task} alt="all"/>            
-            <section  className="Caja">
+            <section  className="Container_list">
                 <ul className="ToDoList">
                     {props.children}
                 </ul>

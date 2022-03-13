@@ -9,13 +9,17 @@
 }
 
 .WriteTask{
-    height: 100px;
-    width: 250px;
+    height: 250px;
+    width: 300px;
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
     border: 2px solid rgb(83, 19, 64);
 }
+
+.WriteTask:focus, input:focus{
+    outline: none;
+} 
 
 
 
@@ -38,6 +42,7 @@ button{
     background: #FE642E;
     transform: scale(1.1);
     transition: .5s ease;
+    cursor: pointer;
 }
 
 .Button_Agregar{
@@ -47,7 +52,14 @@ button{
     border: 1px solid #0431B4;
     box-shadow: 0px 0px 24px 4px rgba(9,9,10,0.55);
     transition: transform .5s; 
-
+    cursor: pointer;
+}
+.Button_Agrega:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
 }
 
 .Button_Agregar:hover{

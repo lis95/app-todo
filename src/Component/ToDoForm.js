@@ -4,7 +4,6 @@ import "../styles/ToDoForm.css";
 
 function ToDoForm () {
     const [NewToDoValue, setNewToDoValue] = React.useState('');
-
     const {
         addToDo,
         setOpenModal,
@@ -13,6 +12,7 @@ function ToDoForm () {
     const onChange = (event) => {
         setNewToDoValue(event.target.value);
     };
+
     
     const onCancel = () => {
         setOpenModal(false);
@@ -23,6 +23,7 @@ function ToDoForm () {
         addToDo(NewToDoValue)
         setOpenModal(false);
     }
+
     return (
         <React.Fragment>
             <form onSubmit={onSubmit} className="FormTask">
@@ -41,6 +42,7 @@ function ToDoForm () {
                     </button>
                     <button className="Button_Agregar"
                         type="submit"
+                        disabled={!NewToDoValue} 
                     >
                         Agregar
                     </button>
