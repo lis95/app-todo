@@ -68,12 +68,7 @@ const ToDoContext = React.createContext()
                 openModal,
                 setOpenModal
             }}>
-<<<<<<< HEAD
                  {props.children}
-=======
-            {props.children}
-
->>>>>>> main
             </ToDoContext.Provider>
         )
     }

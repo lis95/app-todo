@@ -5,11 +5,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 24px;
     padding: 5px;
     border-radius:10px;
     box-shadow: 0px 10px 10px -6px black; 
-    transition: transform .5s; 
+    transition: transform ToDoList.5s; 
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
      }

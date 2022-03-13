@@ -1,0 +1,70 @@
+.FormTask{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.NewTask{
+    font-size: 24px;
+    padding: 10px;
+}
+
+.WriteTask{
+    height: 250px;
+    width: 300px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(83, 19, 64);
+}
+
+.WriteTask:focus, input:focus{
+    outline: none;
+} 
+
+
+
+button{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Button_Cancelar{
+    background-color: #DF0101;
+    font-size: 15px;
+    color: white;
+    border: 1px solid #B40404;
+    box-shadow: 0px 0px 24px 4px rgba(9,9,10,0.55);
+    transition: transform .5s; 
+
+} 
+.Button_Cancelar:hover{
+    background: #FE642E;
+    transform: scale(1.1);
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+.Button_Agregar{
+    background-color: #0040FF;
+    font-size: 15px;
+    color: white;
+    border: 1px solid #0431B4;
+    box-shadow: 0px 0px 24px 4px rgba(9,9,10,0.55);
+    transition: transform .5s; 
+    cursor: pointer;
+}
+.Button_Agrega:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+}
+
+.Button_Agregar:hover{
+    background: #5882FA;
+    transform: scale(1.1);
+    transition: .5s ease;
+
+}

@@ -1,22 +1,31 @@
-
-.Caja{
-    display: inline;
+.Box {
+    display:flex;
+    width: 100%;
+}
+.ToDoList {
+ margin: 0;
+}
+.ToDoItem {
+ margin: 0 0 20px 0;
+}
+.Container_list{
+    justify-content: flex-end;
+    width: 60%;
+    height: fit-content;
     border-radius: 10px;
-    padding: 5px;
-    width: 55%;
-    margin: auto;
     background-color: rgba(242, 213, 255, 0.3);
     box-shadow: 0px 10px 10px -6px black;
-    float: right;
+}
+.imageTask {
+    padding: 0 50px 0 0;
+    margin: -55px 0 0 0;
 }
 
 ul{
-    margin: 0;
-    padding: 0 0 56px 0;
+    padding: 10px;
     list-style: none;
 }
  img{
-     width: 35%;
-     margin-top: -70px;
-     justify-content: center;
+     justify-content: flex-start;
+     width: 40%;
  }

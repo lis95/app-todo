@@ -2,12 +2,12 @@
  width: 60px;
  height: 60px;
  border-radius: 50%;
- background-color: #F0B97E;
+ background-color: #5FCAFB	;
  box-shadow: 0px 0px 24px 4px rgba(9,9,10,0.55);
  -webkit-box-shadow: 0px 0px 24px 5px rgba(9,9,10,0.55);
  -moz-box-shadow: 1px 3px 24px 2px rgba(9,9,10,0.55); transform:rotate(0);
  transition: .3s ease;
- align-items: center;
+ align-items: end;
  cursor: pointer;
  position: fixed;
  bottom: 24px;
@@ -23,6 +23,7 @@
 }
 
 .TodoButton:hover {
-    background-color: rgba(103,78,167);
+    background-color: #CA2ACF;
     transform: rotate(270deg);
 }
+

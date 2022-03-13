@@ -1,9 +1,9 @@
 import React from "react";
 import { ToDoContext} from "../ToDoContext";
+import "../styles/ToDoForm.css";
 
 function ToDoForm () {
     const [NewToDoValue, setNewToDoValue] = React.useState('');
-
     const {
         addToDo,
         setOpenModal,
@@ -12,6 +12,7 @@ function ToDoForm () {
     const onChange = (event) => {
         setNewToDoValue(event.target.value);
     };
+
     
     const onCancel = () => {
         setOpenModal(false);
@@ -22,26 +23,28 @@ function ToDoForm () {
         addToDo(NewToDoValue)
         setOpenModal(false);
     }
+
     return (
         <React.Fragment>
-            <form onSubmit={onSubmit}>
-                <label> Nueva Tarea</label>
-                <textarea
+            <form onSubmit={onSubmit} className="FormTask">
+                <label className="NewTask">Nueva Tarea</label>
+                <textarea className="WriteTask"
                     value={NewToDoValue}
                     onChange={onChange}
-                    placeholder="ecribe tu Nueva tarea"
+                    placeholder="Escribe una Nueva Tarea"
                 >
                 </textarea>
                 <div>
-                    <button
+                    <button className="Button_Cancelar"
                         onClick={onCancel}
                     >
                         Cancelar
                     </button>
-                    <button
+                    <button className="Button_Agregar"
                         type="submit"
+                        disabled={!NewToDoValue} 
                     >
-                        Add
+                        Agregar
                     </button>
                 </div>
             </form>
