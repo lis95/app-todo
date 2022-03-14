@@ -2,7 +2,6 @@
     display: flex;
     justify-content: end;
     position: relative;
-    left: .5%;
 }
 .ToDoSearch svg {
     z-index: 9999;
