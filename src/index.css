@@ -1,5 +1,5 @@
-html {
-     height: 100vh;
+* {
+    height: 100vh;
     background-image: linear-gradient(to right bottom,#ca2acf,#d454d7,#dd73df,#e58fe7,#edaaee,#e6b5f6,#e1c0fb,#ddcaff,#c4caff,#a7caff,#85caff,#5fcafb);
 }
 body {
